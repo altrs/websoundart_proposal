@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PROPOSAL!</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .outer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 70%;
+      border: .5px solid;
+      margin: 0;
+    }
+
+    .left-inner {
+      flex: 0.3;
+      border: .5px solid;
+      padding: 10px;
+      height: 300px;
+    }
+
+    .right-inner {
+      flex: 0.7;
+      border: .5px solid;
+      padding: 10px;
+      height: 300px;
+    }
+
+    .bottom-container {
+      position: fixed;
+      bottom: 30px;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+    }
+
+    .button {
+      margin: 0 5px;
+      padding: 10px 20px;
+      border: solid;
+      border-radius: 5px;
+      background-color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .image-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .image-container img {
+      max-width: 100%;
+      max-height: 300px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="outer">
+    <div class="left-inner" id="imageContainer">
+      <div class="image-container">
+        <img src="assets/hand0.png" alt="Image">
+      </div>
+    </div>
+    <div class="right-inner">
+      <h2>Hello!</h2>
+      <p>Thank you for taking the time to view my application! <br><br> This webpage is a mini interface-exploration that showcases my proposal for your web sound art open call. Navigate by pressing the buttons below, or click HERE for a no-frills zip file that includes all the project information that you'll also find on this webpage. <br><br><br> Kindly, <br> Robin</p>
+    </div>
+  </div>
+
+  <div class="bottom-container">
+    <button class="button" onclick="showImage('assets/hand1.png')">1 FINGER</button>
+    <button class="button" onclick="showImage('assets/hand2.png')">2 FINGER</button>
+    <button class="button" onclick="showImage('assets/hand3.png')">3 FINGER</button>
+    <button class="button" onclick="showImage('assets/hand4.png')">4 FINGER</button>
+    <button class="button" onclick="showImage('assets/hand5.png')">5 FINGER</button>
+  </div>
+
+  <script>
+    function showImage(imageSrc) {
+      const imageContainer = document.getElementById('imageContainer');
+      imageContainer.innerHTML = `<div class="image-container">
+                                    <img src="${imageSrc}" alt="Image">
+                                  </div>`;
+    }
+  </script>
+
+</body>
+</html>
