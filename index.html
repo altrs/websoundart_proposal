@@ -34,6 +34,7 @@
       border: .5px solid;
       padding: 10px;
       height: 300px;
+      overflow-y: auto;
     }
 
     .bottom-container {
@@ -78,27 +79,74 @@
       </div>
     </div>
     <div class="right-inner">
-      <h2>Hello!</h2>
-      <p>Thank you for taking the time to view my application! <br><br> This webpage is a mini interface-exploration that showcases my proposal for your web sound art open call. Navigate by pressing the buttons below, or click HERE for a no-frills zip file that includes all the project information that you'll also find on this webpage. <br><br><br> Kindly, <br> Robin</p>
+      <h2>Hello</h2>
+      <p>Thank you for taking the time to view my application! <br><br> This webpage is a mini interface-exploration that showcases my proposal for your web sound art open call. Navigate by pressing the buttons below, or click HERE for a no-frills zip file that includes all the project information that you'll also find on this webpage. If you have questions, comments, wanna chat, reach out anytime! My email is robinhaltman@gmail.com. My website is altrs.wiki. <br><br><br> Kindly,<br>Robin</p>
     </div>
   </div>
 
   <div class="bottom-container">
-    <button class="button" onclick="showImage('assets/hand1.png')">1 FINGER</button>
+    <!-- <button class="button" onclick="showImage('assets/hand1.png')">1 FINGER</button>
     <button class="button" onclick="showImage('assets/hand2.png')">2 FINGER</button>
     <button class="button" onclick="showImage('assets/hand3.png')">3 FINGER</button>
     <button class="button" onclick="showImage('assets/hand4.png')">4 FINGER</button>
-    <button class="button" onclick="showImage('assets/hand5.png')">5 FINGER</button>
+    <button class="button" onclick="showImage('assets/hand5.png')">5 FINGER</button> -->
+    <button class="button" onclick="showImageAndContent('assets/hand1.png', 1)">1 FINGER</button>
+    <button class="button" onclick="showImageAndContent('assets/hand2.png', 2)">2 FINGER</button>
+    <button class="button" onclick="showImageAndContent('assets/hand3.png', 3)">3 FINGER</button>
+    <button class="button" onclick="showImageAndContent('assets/hand4.png', 4)">4 FINGER</button>
+    <button class="button" onclick="showImageAndContent('assets/hand5.png', 5)">5 FINGER</button>
+
   </div>
 
   <script>
-    function showImage(imageSrc) {
-      const imageContainer = document.getElementById('imageContainer');
-      imageContainer.innerHTML = `<div class="image-container">
-                                    <img src="${imageSrc}" alt="Image">
-                                  </div>`;
+  function showImage(imageSrc) {
+    const imageContainer = document.getElementById('imageContainer');
+    imageContainer.innerHTML = `<div class="image-container">
+                                  <img src="${imageSrc}" alt="Image">
+                                </div>`;
+  }
+
+  function showContent(buttonNum) {
+    const rightInner = document.querySelector('.right-inner'); // Target the right-inner class
+    let title, content;
+
+    switch (buttonNum) {
+      case 1:
+        title = "PROJECT DESCRIPTION ☞ ENVIROHYPNO";
+        content = "<u>OVERVIEW</u><br><br>EnviroHypno is a tool that lets users redefine their relationship with technology through the use of sound and the act of field recording, while also grounding oneself in their immediate physical surroundings with ‘self-inflicted hypnosis.’ How does this web tool do that? EnviroHypno asks the users to record short audio clips to create auditory art through the manipulation/control of their external environment -- rather than through the digital interface. In this way, the tool 'inverts’ the recording/production of sound by redefining technology's place in the creative process. Overall, we are using our physical space to control the stagnant technologies -- instead of vice-versa. The objective of this piece is to ultimately gain a sense of curiosity about the alternative ways in which we can incorporate technologies into our lives.<br><br>The tool has simple UI/UX as it is meant to be used by anyone regardless of their technical/musical abilities. With this web application, users will be able to:<br><br>1. Make short field recordings (approximately 5-10 seconds).<br>2. Listen to their most recent sound creation- the sound creation amounts from pressing a ‘mix’ button that takes their field recordings, and algorithmically-distorts it into hypnotic music.<br>3. Engage in surrealist sound activities.<br>4. Keep a sound journal.<br><br>Thus far, a demo of the web tool can be found at https://altrs.github.io/envirohypno/.<br><br><br><u>CONCEPT + INSPIRATION</u><br><br>A main inspiration for this experimental soundwalking experience is the article, “Soundwalking and the Bodily Exploration of Places” by David Paquette and Andra McCartney. The article questions the role of the participants, their agency, as well as the incorporation of improvisation. EnviroHypno attempts to incorporate all of these elements into the experience, ensuring that the user is in control of the sound outcome. Overall, this piece relies on user decision and their physical space to control the technology’s output-- instead of vice-versa.<br><br>As stated previously, I wanted to create something simple, making EnviroHypno accessible and easy-to-use by anyone, regardless of their technical abilities. Rather than having the user utilize lots of control buttons to create the sound they desire, I want the users to ‘control’ the sound through their physical space. For example, rather than a user editing the pitch of a sample by adjusting a dial, I want this project to push them to go out into their world and listen for a pitch they like, then record it as-is. EnviroHypno is ultimately a simple auditory ‘iSpy’ game that results in your own personal hypnosis track.<br><br>The theme of the piece is a coagulation between technogaianism, luddism and solar-punk mentalities. I looked to Annie Levin, Design Justice Principles, Alice Yuan Zhang, Community Tech NY and others in order to guide the project’s message. EnviroHypno asks the user to cultivate a sense of curiosity for their physical environment, rethink their relationship with technology, and take control of both. Ultimately, I believe that EnviroHypno is a qualitative contribution to the redefining of our relationship with technology and control.<br><br><br><u>PROJECT DIRECTION</u><br><br>While the main functionality has been mocked-up on the demo page, I would like to use your open-call as an opportunity to build upon it, specifically focusing on:<br><br>1. Researching the properties/attributes of hypnotic music and how hypnotic tracks can be created algorithmically with field recordings (regardless of the actual recordings’ content). And further, exploring at a deeper level how self-inflicted hypnosis can be related back to our relationship with technology and space.<br>2. Pushing the boundaries of accessible and intuitive UI/UX, possibly creating a more spatial, intuitive, and experimental interface –a.k.a. creating a cohesive labyrinth for digital sound creation. A main inspiration for this directive is the article, ‘This is Not my Beautiful House: Examining the Desktop Metaphor, 1980-1995’ by Everest Pipkin.<br>3. Creating a section on the web page that gives users ideas for sound creation, based on ‘A Book of Surrealist Games.’ As of right now, the demo has a random ‘sound recipe generator.’ But I believe by pushing this type of interactivity further, this tool can become highly engaging, letting users tap into their inner child, playing auditory iSpy/scavenger hunt games.<br>4. One other direction for this project could be creating a digital community around this tool. One way I was thinking of doing this is by building a ‘forum’ on the webpage for individuals to share things from their sound journal, talk to others about sound, space, technology, algorithmic sound programming etc.";
+        break;
+      case 2:
+        title = "TECH DESCRIPTION ☞ ENVIROHYPNO";
+        content = "Exploring the technical aspects of the piece: the website will have the following aspects:<br><br>1. The interface of the sound-art tool itself. This tool entails using an API such as MediaRecorder to record the user’s samples on first button press. On second button press, the recorder stops and saves the recording, adding it to an array. The user can do this as many times as they like. The mix button that takes all recorded samples and algorithmically distorts it to create a hypnotic audio piece (more on this in #2). And lastly, a clear button that gets rid of all the recorded samples. Within the demo, I also included a slider that simply controls the rate in which the mixed audio is played back (subject to change or be removed).<br>2. For the audio manipulation, I will most likely be using Tone.js to mix the recorded samples and create the hypnotic sound output; however, another possibility could be using Sonic Pi, or another equivalent. Within the demo, the main effects I used include: reverb, Tone.js’s distortion effect, and a feedback delay. I also utilized an equalizer and adjusted the attack, release and duration with randomized values. A large inspiration for the auditory quality of my piece was Toshimaru Nakamura’s ‘No-Input Mixing Board’ album for its trance-like feeling; however, this is the main technical aspect that I would like to work on and develop further, after doing some research regarding what makes hypnotic music, truly hypnotic.<br>3. For the surrealist sound activities, I plan to have auditory descriptions of the games (and possibly diagrams), in an experimental library/shelf-style format, utilizing randomization and possibly unorthodox use of screen space.<br>4. The sound journal will involve either local storage, or connecting the webpage to a database that allows users to create ‘accounts.’ There will be space for the user to write notes, and possibly draw mind-maps, or save recordings of spoken notes.<br>5. Furthermore, connecting this page to a database and creating a community sharing-platform is another option for this project. This could allow users to interact with each other, post sound recipes for others to see, create a collaborative sound piece (possibly a culmination of shared sound art), etc.<br>6. The visuals currently on the demo have been created by importing Blender files into Osci-Render, and then refining them in Premiere Pro. For this project, I would be open to redesigning them, creating generative audio-visuals that respond to the created audio art, rather than stagnant gifs.<br><br>As a final note, while I look forward to creating an experimental web interface, I would also like to ensure that this web page is accessible – thus it may be imperative to create a ‘no-frills’ version of each page, that is more straightforward and familiar for users.";
+        break;
+      case 3:
+        title = "BIO + CV ☞  Robin";
+        content = "web: https://www.altrs.wiki/<br>mail: robinhaltman@gmail.com<br>cell: +1 6095365182<br><br>Robin Altman (any pronouns) is a creative technologist and multidisciplinary artist based in NYC, currently exploring the boundaries between the physical and the digital world often using tactile mediums in conjunction with web based applications and physical computing.<br><br>Their work sets out to investigate group consciousness, idiosyncratic perception, the mundane, technology in relation to the human body/mind, and the overarching tensions between all of these realities. She is inspired by nature, the mind, the overlooked, and the things that are not often considered forms of ‘art,’ but are art nonetheless. Their work often materializes in explorative digital-interaction, electronic sculptures, simulation technology, and generative visuals and sound.<br><br>Robin is currently studying design and technology at Parsons School of Design in New York City, focused on interactive and experiential technology and building prototypes from the ground up. They find that the best way to express their ideas is often through puzzle-like exploration, encouraging the users to engage in hands-on trial and error, opening oneself up to seeing things from different angles, and being present with one’s environment. The ultimate goal is to shed constricting and burdening labels imposed upon humans, objects and concepts alike, enabling individuals to tap into a state of impartial existence – ultimately cultivating a sense of deep compassion for their surrounding environment.<br><br><br><br><u>EDUCATION</u><br>2025 - Parsons School of Design. Design and Technology BFA 25’. Minor: Data Visualization. NYC.<br> 2023 - Periplus Materiality Design Residency. Crete, Greece.<br> 2021 - GIAC Open Source Intelligence Certified. <br> 2021 - SANS Cyber Defense, SEC487: Open-Source Intelligence (OSINT) Gathering and Analysis <br> 2021 - CG Master Academy: Intro To Maya, Environment Sketching, Dynamic Sketching, Analytical Figure Drawing.<br> 2020 - Art Students League Of New York: Figure Drawing, Intensive Figure Drawing, Painterly Drawing, Figures In Context, Color Theory. NYC. <br><br><u>EXPERIENCE</u><br> 2023 - WLab 3D Artist Intern. Brooklyn, NY. <br> 2023 - Muralist And Live Chalk Artist At Primal and Mia Mia Resturante (Since 2019)<br> 2023 - Various Commissions For Family Portraits And Home-Murals (Since 2018) <br> 2022 - Typographer And Graphic Designer: Luna Soul & Bowls (Since 2019)<br>2021 - Website Designer: Prawn Restaurant And Primal Restaurant <br> 2021 - Muralist For Boxit Fitness (Since 2019)<br> 2020 - Trace Labs Volunteer.<br> 2020 - SANS GirlsGoCyber National Competition <br><br><br><u>EXHIBITIONS</u><br>2023 - towards a new MATEREALITY. Crete, Greece.<br> 2022 - Pixel Mouth Exhibit, CYBORG//HYPERMEAT. NYC.<br> 2022 - Ecogenic Research Collective Exhibit, First Instar. NYC.";
+        break;
+      case 4:
+        title = "Button 4 Content";
+        content = "This is content for Button 4.";
+        break;
+      case 5:
+        title = "Button 5 Content";
+        content = "This is content for Button 5.";
+        break;
+      default:
+        title = "Default Content";
+        content = "This is the default content.";
+        break;
     }
-  </script>
+
+    rightInner.innerHTML = `<h2>${title}</h2>
+                            <p>${content}</p>`;
+  }
+
+  function showImageAndContent(imageSrc, buttonNum) {
+    showImage(imageSrc);
+    showContent(buttonNum);
+  }
+</script>
+
 
 </body>
 </html>
